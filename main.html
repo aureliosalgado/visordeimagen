@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Visor de imágenes - Objeto Array</title>
+    <script>
+        var miArrayImagenes = ["assets/gato.jpg","assets/koala.jpg","assets/leon.jpg","assets/perro.jpg"];
+        var posicion=parseInt(0);
+        //indica el tiempo que pasa para ejecutar la función
+        setInterval(siguiente,1500);
+        function siguiente() {
+        //Si la longituz del array es distinto vamos sumando 1 para ir al anterior pero es mayor no suma, te caes por el precipicio
+            if (posicion<=miArrayImagenes.length-1) {
+                posicion++;
+            }
+        //pasar de la ultima a la primera
+            if (posicion>miArrayImagenes.length-1) {
+                posicion=0;
+            }
+            document.getElementById("fotos").src=miArrayImagenes[posicion];
+        }
+    </script>
+</head>
+<body>
+    <h1>Visor de Imágenes</h1>
+    <div>
+        <img src="assets/gato.jpg" id="fotos" height="426" width="640"/>
+    </div>
+</body>
+</html>
